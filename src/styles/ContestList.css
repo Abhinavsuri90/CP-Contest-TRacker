@@ -1,0 +1,115 @@
+.contest-list-container {
+  margin-bottom: 40px;
+}
+
+.contest-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.contest-list-titles {
+  flex: 1;
+  min-width: 200px;
+}
+
+.contest-filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  width: 240px;
+  padding: 8px 12px;
+  border: 1px solid var(--text-light);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  transition: border-color var(--transition-speed);
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+}
+
+.platform-select {
+  min-width: 150px;
+  padding: 8px 12px;
+  border: 1px solid var(--text-light);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  background-color: white;
+  transition: border-color var(--transition-speed);
+}
+
+.platform-select:focus {
+  border-color: var(--primary-color);
+}
+
+.contest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.no-contests {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  background-color: var(--background-light);
+  border-radius: var(--border-radius);
+  border: 1px dashed var(--text-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contest-list-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .contest-filters {
+    width: 100%;
+  }
+  
+  .search-input {
+    width: 100%;
+  }
+  
+  .platform-select {
+    flex: 1;
+  }
+  
+  .contest-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Animation for list updates */
+@keyframes fadeInList {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.contest-grid {
+  animation: fadeInList 0.3s ease-out;
+}

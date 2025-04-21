@@ -1,0 +1,213 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 40px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+}
+
+.hero-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.section-header-with-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.view-all-link {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--transition-speed);
+}
+
+.view-all-link .arrow {
+  margin-left: 4px;
+  transition: transform var(--transition-speed);
+}
+
+.view-all-link:hover .arrow {
+  transform: translateX(4px);
+}
+
+.ongoing-contests-section {
+  margin-bottom: 16px;
+}
+
+.section-header-highlight {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.ongoing-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.live-indicator {
+  background-color: var(--error-color);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 12px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.ongoing-contests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.platforms-section {
+  margin-top: 20px;
+}
+
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.platform-card {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  background-color: var(--card-background);
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.platform-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  transition: opacity var(--transition-speed);
+}
+
+.platform-card[data-platform="codeforces"]::before {
+  background-color: #1F8ACB;
+}
+
+.platform-card[data-platform="leetcode"]::before {
+  background-color: #FFA116;
+}
+
+.platform-card[data-platform="atcoder"]::before {
+  background-color: #232629;
+}
+
+.platform-card[data-platform="codechef"]::before {
+  background-color: #745D46;
+}
+
+.platform-card[data-platform="hackerrank"]::before {
+  background-color: #00AB6C;
+}
+
+.platform-card[data-platform="hackerearth"]::before {
+  background-color: #323754;
+}
+
+.platform-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.platform-card:hover::before {
+  opacity: 1;
+}
+
+.platform-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  z-index: 1;
+  text-align: center;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 24px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  
+  .platforms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
